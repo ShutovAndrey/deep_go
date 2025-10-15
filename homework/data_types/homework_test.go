@@ -2,24 +2,14 @@ package main
 
 import (
 	"testing"
-	"unsafe"
 
 	"github.com/stretchr/testify/assert"
 )
 
 // go test -v homework_test.go
 
-type Numeric interface {
-	uint32 | uint16 | uint64
-}
-
-func ToLittleEndian[T Numeric](number T) T {
-	size := int(unsafe.Sizeof(number))
-	var result T
-	for i := 0; i < size; i++ {
-		result |= (number >> (8 * uint(i))) & 0xFF << (8 * uint(size-1-i))
-	}
-	return result
+func ToLittleEndian(number uint32) uint32 {
+	return 0 // need to implement
 }
 
 func TestСonversion(t *testing.T) {
